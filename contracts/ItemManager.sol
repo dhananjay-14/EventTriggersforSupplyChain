@@ -35,7 +35,7 @@ contract ItemManager is Ownable{
     }
     
     function triggerDelivery(uint _index) public onlyOwner {
-        require(items[_index]._step == SupplyChainSteps.Paid, "Item either not created or not paid");
+        require(items[_index]._step == SupplyChainSteps.Paid, "Item is either not created or not paid");
         items[_index]._step = SupplyChainSteps.Delivered;
         emit SupplyChainStep(_index, uint(items[_index]._step),address(items[index]._item));
     }
